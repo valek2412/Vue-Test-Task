@@ -17,7 +17,9 @@
         />
       </div>
       <div class="add-form__button">
-        <button type="submit">Set field</button>
+        <button type="submit" v-bind:disabled="!form.key || !form.value">
+          Set field
+        </button>
       </div>
     </form>
   </div>
@@ -40,7 +42,11 @@ export default {
       value: '',
     });
 
-    const setField = () => store.commit('setField', { id: contactId, ...form });
+    const setField = () => {
+      store.commit('setField', { id: contactId, ...form });
+      form.key = '';
+      form.value = '';
+    };
 
     return { form, setField };
   },

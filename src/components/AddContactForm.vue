@@ -19,7 +19,12 @@
         />
       </div>
       <div class="add-form__button">
-        <button type="submit">Add contact</button>
+        <button
+          type="submit"
+          v-bind:disabled="!form.contactName || !form.phoneNumber"
+        >
+          Add contact
+        </button>
       </div>
     </form>
   </div>
@@ -38,7 +43,11 @@ export default {
       phoneNumber: '',
     });
 
-    const addContact = () => store.commit('addContact', form);
+    const addContact = () => {
+      store.commit('addContact', form);
+      form.contactName = '';
+      form.phoneNumber = '';
+    };
 
     return { form, addContact };
   },
