@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
-        <AddFieldForm/>
-        <ContactInfo/>
-    </div>
+  <div class="container">
+    <AddFieldForm />
+    <ContactInfo />
+  </div>
 </template>
 
 <script>
@@ -18,6 +18,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

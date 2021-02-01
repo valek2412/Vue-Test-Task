@@ -1,16 +1,28 @@
 <template>
-    <div class="container">
-        <div class="contactList">
-            <div class="contactItem" v-for="contact in contacts" :key="contact.get('id')">
-                <router-link
-                        :to="{ name: 'contactDetail', params: { contactId: contact.get('id') }}">
-                    <h2>{{contact.get('contactName')}}</h2>
-                </router-link>
-                <span>{{contact.get('phoneNumber')}}</span>
-                <button @click="deleteContact(contact.get('id'))">Delete</button>
-            </div>
+  <div class="container">
+    <div class="contact-list">
+      <div
+        class="contact-list__item"
+        v-for="contact in contacts"
+        :key="contact.get('id')"
+      >
+        <div class="contact-list__link">
+          <router-link
+            :to="{
+              name: 'contactDetail',
+              params: { contactId: contact.get('id') }
+            }"
+          >
+            Name: {{ contact.get("contactName") }}
+          </router-link>
         </div>
+        <div class="contact-list__description">
+          <span>Phone: {{ contact.get("phoneNumber") }}</span>
+        </div>
+        <button @click="deleteContact(contact.get('id'))">Delete</button>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -26,9 +38,18 @@ export default {
     return { contacts, deleteContact };
   },
 };
-
 </script>
 
 <style scoped>
-
+.container {
+  padding: 5px;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-list__item {
+  padding: 10px;
+}
 </style>

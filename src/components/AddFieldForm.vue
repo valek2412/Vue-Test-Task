@@ -1,18 +1,26 @@
 <template>
-    <div class="formContainer">
-        <form @submit.prevent='setField'>
-            <h1>Add field</h1>
-            <div>
-                <div class="input">
-                    <input type="text" placeholder="Key" v-model="form.key">
-                </div>
-                <div class="input">
-                    <input type="text" placeholder="Value" v-model="form.value">
-                </div>
-            </div>
-            <button type="submit">Set field</button>
-        </form>
-    </div>
+  <div class="container">
+    <form class="add-form" @submit.prevent="setField">
+      <div class="add-form__header"><h3>Add field</h3></div>
+      <div class="add-form__fields">
+        <input
+          class="add-form__input"
+          type="text"
+          placeholder="Key"
+          v-model="form.key"
+        />
+        <input
+          class="add-form__input"
+          type="text"
+          placeholder="Value"
+          v-model="form.value"
+        />
+      </div>
+      <div class="add-form__button">
+        <button type="submit">Set field</button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -24,7 +32,9 @@ export default {
   name: 'AddFieldForm',
   setup() {
     const store = useStore();
-    const { params: { contactId } } = useRoute();
+    const {
+      params: { contactId },
+    } = useRoute();
     const form = reactive({
       key: '',
       value: '',
@@ -38,5 +48,19 @@ export default {
 </script>
 
 <style scoped>
-
+.container {
+  padding: 10px;
+}
+.add-form__fields {
+  padding: 5px;
+}
+.add-form__input {
+  padding: 5px;
+}
+.add-form__button {
+  padding: 5px;
+}
+.add-form__button button {
+  padding: 5px;
+}
 </style>

@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
-        <AddContactForm/>
-        <ContactList/>
-    </div>
+  <div class="container">
+    <AddContactForm />
+    <ContactList />
+  </div>
 </template>
 
 <script>
@@ -12,11 +12,10 @@ import ContactList from '../components/ContactList.vue';
 export default {
   name: 'Contacts',
   components: {
-    AddContactForm, ContactList,
+    AddContactForm,
+    ContactList,
   },
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
